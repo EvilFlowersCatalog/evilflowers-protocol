@@ -11,11 +11,13 @@ permissions:
 jobs:
   notify-python-client:
     runs-on: ubuntu-latest
+    environment:
+      name: dispatcher
     steps:
       - name: Repository Dispatch to evilflowers-protocol-python
         uses: peter-evans/repository-dispatch@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}
           repository: EvilFlowersCatalog/evilflowers-protocol-python
           event-type: protocol-updated
           client-payload: '{"ref": "${{ github.ref_name }}"}'
