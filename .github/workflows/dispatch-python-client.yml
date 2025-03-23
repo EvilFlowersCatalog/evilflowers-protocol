@@ -5,7 +5,8 @@ on:
     branches: ['**']
     tags: ['*.*.*']
 
-permissions: id-token
+permissions: 
+  contents: write
 
 jobs:
   notify-python-client:
